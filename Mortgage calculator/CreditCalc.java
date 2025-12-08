@@ -9,7 +9,7 @@ public final static byte PERCENT = 100;
        int months = year * MONTH_IN_YEAR;
        double result = sum * (procent * Math.pow((1 + procent),months)) / (Math.pow((1+procent),months) -1);
 
-       return Math.round( result);
+       return Math.round(result);
        
     }
 

@@ -1,11 +1,11 @@
 
 
 public class CalculateMortgage{
-public final static byte MONTH_IN_YEAR = 12;
-public final static byte PERCENT = 100;
-public double sum;
-public float proc;
-public int year;
+private final static byte MONTH_IN_YEAR = 12;
+private final static byte PERCENT = 100;
+private double sum;
+private float proc;
+private int year;
 
     public CalculateMortgage(double sum, float proc, int year){
         this.sum = sum;

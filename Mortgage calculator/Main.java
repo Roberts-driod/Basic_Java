@@ -6,6 +6,7 @@
 // Pēc nederīgas ievades lietotājam dod iespēju vērtību ievadīt atkārtoti līdz tā ir derīga.
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Main{
 
@@ -30,26 +31,43 @@ public class Main{
          termin = readInputInt("Atmaksas termiņš(gados) -->",1,30,errorForYear);
 
         
-        CreditCalc calc = new CreditCalc();
-        System.out.println(calc.calculateMortgage(creditSum, procentLikme, termin));
+        var credit0 = new CalculateMortgage(creditSum, procentLikme, termin);
+        System.out.println(credit0.calculate());
     }
 
-    public static double readInputDouble(String prompt, int min, double max, String errorMsg){
-        var myobj = new Scanner(System.in);
-         while(true){
+        public static double readInputDouble(String prompt, double min, double max, String errorMsg) {
+        Scanner myobj = new Scanner(System.in);
+        double variable0;
+        while (true) {
         System.out.println(prompt);
-        double variable0 = myobj.nextDouble();
-        if(variable0 < min || variable0 > max){
+        try {
+            variable0 = myobj.nextDouble();
+        } catch (InputMismatchException e) {
+            System.out.println("Wrong Input Type!");
+            myobj.nextLine(); 
+            continue;
+            }
+        if (variable0 < min || variable0 > max) {
             System.out.println(errorMsg);
-        } else {return variable0; }
-         }
-    }
+        } else {
+            return variable0;
+                }
+            }
+        }
+
 
     public static float readInputFloat(String prompt, int min, int max, String errorMsg){
         var myobj = new Scanner(System.in);
+        Float variable1;
          while(true){
         System.out.println(prompt);
-        float variable1 = myobj.nextFloat();
+        try {
+            variable1 = myobj.nextFloat();
+        } catch (InputMismatchException e) {
+            System.out.println("Wrong Input Type!");
+            myobj.nextLine(); 
+            continue;
+            }
         if(variable1 < min || variable1 > max){
             System.out.println(errorMsg);
         } else {return variable1; }
@@ -58,9 +76,16 @@ public class Main{
 
     public static int readInputInt(String prompt, int min, int max, String errorMsg){
         var myobj = new Scanner(System.in);
+        int variable2;
          while(true){
         System.out.println(prompt);            
-        int variable2 = myobj.nextInt();
+        try {
+            variable2 = myobj.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Wrong Input Type!");
+            myobj.nextLine(); 
+            continue;
+            }
         if(variable2 < min || variable2 > max){
             System.out.println(errorMsg);
         } else {return variable2; }

@@ -1,9 +1,3 @@
-// 6.uzdevums
-// Pilnveidojiet aplikāciju pievienojot ievades datu validāciju. 
-// Kredīta summai jābūt robežās no 1_000 līdz 1_000_000.
-// Procentu likmei jābūt robežās no 0 līdz 20.
-// Periodam jābūt robežās no 1 līdz 30.
-// Pēc nederīgas ievades lietotājam dod iespēju vērtību ievadīt atkārtoti līdz tā ir derīga.
 
 import java.util.Scanner;
 
@@ -33,7 +27,5 @@ public class Main{
         var credit0 = new CalculateMortgage(creditSum, procentLikme, termin);
         System.out.println(credit0.calculate());
     }
-
-
 
 }
